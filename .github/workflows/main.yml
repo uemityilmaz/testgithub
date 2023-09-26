@@ -1,10 +1,20 @@
-name: Simple Workflow with Variables
+name: Simple Workflow with Branch-Dependent Variables
 
 on: [push]
 
 env:
-  MY_GLOBAL_VARIABLE: "Hello from Global Variable!"
-  ANOTHER_GLOBAL_VAR: "This is another variable."
+  MY_GLOBAL_VARIABLE: >-
+    ${{ 
+      (github.ref == 'refs/heads/main') && 'Main Branch' ||
+      (github.ref == 'refs/heads/dev') && 'Development Branch' ||
+      'Other Branch'
+    }}
+  ANOTHER_GLOBAL_VAR: >-
+    ${{ 
+      (github.ref == 'refs/heads/main') && 'Main Variable' ||
+      (github.ref == 'refs/heads/dev') && 'Dev Variable' ||
+      'Other Variable'
+    }}
 
 jobs:
   print_message:
