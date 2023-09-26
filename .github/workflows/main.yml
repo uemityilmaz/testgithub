@@ -5,15 +5,15 @@ on: [push]
 env:
   MY_GLOBAL_VARIABLE: >-
     ${{ 
-      (github.ref == 'refs/heads/main') && 'Main Branch' ||
-      (github.ref == 'refs/heads/dev') && 'Development Branch' ||
-      'Other Branch'
+      (github.ref == 'refs/heads/main') && 'e4u-stabil4u-gasag-prod' ||
+      startsWith(github.ref, 'refs/heads/feature/') && 'e4u-stabil4u-dev' ||
+      (github.ref == 'refs/heads/dev') && 'e4u-stabil4u-dev' 
     }}
   ANOTHER_GLOBAL_VAR: >-
     ${{ 
-      (github.ref == 'refs/heads/main') && 'Main Variable' ||
-      (github.ref == 'refs/heads/dev') && 'Dev Variable' ||
-      'Other Variable'
+      (github.ref == 'refs/heads/main') && 'e4u-stabil4u-gasag-prod' ||
+      startsWith(github.ref, 'refs/heads/feature/') && 'e4u-stabil4u-dev' ||
+      (github.ref == 'refs/heads/dev') && 'e4u-stabil4u-dev' 
     }}
 
 jobs:
