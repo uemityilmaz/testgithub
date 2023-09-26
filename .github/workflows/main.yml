@@ -6,13 +6,13 @@ env:
   MY_GLOBAL_VARIABLE: >-
     ${{ 
       (github.ref == 'refs/heads/main') && 'e4u-stabil4u-gasag-prod' ||
-      startsWith(github.ref, 'refs/heads/feature/') && 'e4u-stabil4u-dev' ||
+      startsWith(github.ref, 'refs/heads/feature/') && 'e4u-stabil4u-feature' ||
       (github.ref == 'refs/heads/dev') && 'e4u-stabil4u-dev' 
     }}
   ANOTHER_GLOBAL_VAR: >-
     ${{ 
       (github.ref == 'refs/heads/main') && 'e4u-stabil4u-gasag-prod' ||
-      startsWith(github.ref, 'refs/heads/feature/') && 'e4u-stabil4u-dev' ||
+      startsWith(github.ref, 'refs/heads/feature/') && 'e4u-stabil4u-feature' ||
       (github.ref == 'refs/heads/dev') && 'e4u-stabil4u-dev' 
     }}
 
