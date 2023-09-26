@@ -1,11 +1,17 @@
-name: Simple Workflow
+name: Simple Workflow with Variables
 
 on: [push]
+
+env:
+  MY_GLOBAL_VARIABLE: "Hello from Global Variable!"
+  ANOTHER_GLOBAL_VAR: "This is another variable."
 
 jobs:
   print_message:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Print a message
-      run: echo "Hello from GitHub Actions!"
+    - name: Print using global variables
+      run: |
+        echo $MY_GLOBAL_VARIABLE
+        echo $ANOTHER_GLOBAL_VAR
