@@ -36,4 +36,4 @@ jobs:
 
       - name: Start GCP VM instance
         run: |
-          gcloud compute instances start 
+          gcloud compute instances start sonarserver
