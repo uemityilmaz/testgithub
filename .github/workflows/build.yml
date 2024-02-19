@@ -45,8 +45,11 @@ jobs:
     needs: start-vm  # Ensure this job runs after the start-vm job
     runs-on: ubuntu-latest
     steps:
-      - name: Authenticate to Google Cloud
+      - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v0
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
 
