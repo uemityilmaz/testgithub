@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Authenticate to Google Cloud
-        uses: google-github-actions/setup-gcloud@master
+        uses: actions/checkout@v2
         with:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
