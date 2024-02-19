@@ -36,4 +36,4 @@ jobs:
 
       - name: Start GCP VM instance
         run: |
-          gcloud compute instances start INSTANCE_NAME --zone=INSTANCE_ZONE
+          gcloud compute instances start 
